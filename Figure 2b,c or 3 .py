@@ -37,12 +37,12 @@ plt.rcParams["legend.loc"] =  'upper right'
 
 cl = "black" # color of dots
 
-electrode_area = 0.24 #cm^2
-R =  42.4122 # resistance, 0 IF FULLY CORRECTED ON INSTRUMENT
+electrode_area = XXX #cm^2
+R =  XXX # resistance, 0 IF FULLY CORRECTED ON INSTRUMENT
 comp = 0.15 # fractional %, iR compensation, if 85% on instrument, do remaining 15% here
-Eoc = 0.035 # MSE V vs Erev
+Eoc = XXX # MSE V vs Erev
 
-conc = 1 # mM conc
+conc = XXX # mM conc
 concentration = conc/1000 # Molar 10 mM = 0.010 M
 #add visual aid for concentration
 
@@ -63,14 +63,8 @@ mol_Au = TCD / (N * 96485) # C/cm^2, n, C/mol, will need to change 440e-6 (Cu si
 
 # File loading with dictionary and scan rates
 library =       {  # Dictionary to store DataFrames and scan rates, the scan rates are the keys to the file path
-    25: r"E:\Kempler\2026\april 2026\2026-04-08 1mM Ag-30mM K - 100pca - v3\LSV-25_Au(#087)_Pt_Ag[1mM]_1-30-100_Ag-K-HSA_20260408_03_LSV_C02.mpt",
-    50: r"E:\Kempler\2026\april 2026\2026-04-08 1mM Ag-30mM K - 100pca - v3\LSV-50_Au(#087)_Pt_Ag[1mM]_1-30-100_Ag-K-HSA_20260408_03_LSV_C02.mpt",
-    100: r"E:\Kempler\2026\april 2026\2026-04-08 1mM Ag-30mM K - 100pca - v3\LSV-100_Au(#087)_Pt_Ag[1mM]_1-30-100_Ag-K-HSA_20260408_03_LSV_C02.mpt",
-    250: r"E:\Kempler\2026\april 2026\2026-04-08 1mM Ag-30mM K - 100pca - v3\LSV-250_Au(#087)_Pt_Ag[1mM]_1-30-100_Ag-K-HSA_20260408_03_LSV_C02.mpt",
-    1000: r"E:\Kempler\2026\april 2026\2026-04-08 1mM Ag-30mM K - 100pca - v3\LSV-1000_Au(#087)_Pt_Ag[1mM]_1-30-100_Ag-K-HSA_20260408_03_LSV_C02.mpt",
-    # 2500: r"E:\Kempler\2026\april 2026\2026-04-08 1mM Ag-30mM K - 100pca - v3\LSV-2500_Au(#087)_Pt_Ag[1mM]_1-30-100_Ag-K-HSA_20260408_03_LSV_C02.mpt",
-    10000: r"E:\Kempler\2026\april 2026\2026-04-08 1mM Ag-30mM K - 100pca - v3\LSV-10000_Au(#087)_Pt_Ag[1mM]_1-30-100_Ag-K-HSA_20260408_03_LSV_C02.mpt",
-    # 25000: r"E:\Kempler\2026\april 2026\2026-04-08 1mM Ag-30mM K - 100pca - v3\LSV-25000_Au(#087)_Pt_Ag[1mM]_1-30-100_Ag-K-HSA_20260408_03_LSV_C02.mpt",
+    Scanrate: r"filepath.mpt",
+    
     # #... (rest of your paths)
     }
 
@@ -78,8 +72,8 @@ library =       {  # Dictionary to store DataFrames and scan rates, the scan rat
 
 
 head=0
-BaseLine_const = pd.read_csv(r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\blanks\2025-04-24 100 mM PCA - BLANK\CV-50_Au(st#038)_Pt_MSE_100_PCA-BLANK_20250424_02_CV_C01.mpt", delimiter='\t', header=head)
-BL_inf = { 'R':43.423, 'SA':0.162, 'Cycle':2, 'SR':50}
+BaseLine_const = pd.read_csv(r"filepath.mpt", delimiter='\t', header=head)
+BL_inf = { 'R':xxx, 'SA':xxx, 'Cycle':xxx, 'SR':xxx}
 
 
 
@@ -246,18 +240,10 @@ def get_K_app(pca_E, P_ks, cl):  # Pass Coverage and cl as arguments
     plt.text(0.42, 0.19, coverage_str, transform=plt.gca().transAxes, fontsize=24, color='black', verticalalignment='top')
     plt.text(0.45, 0.14, K_app_str, transform=plt.gca().transAxes, fontsize=24, color='black', verticalalignment='top')
     
-    def func2(x, al):
-        
-        con = ( al * e) / ( kb * T)  # V
-        con2 = ( (1-al) * e) / ( kb * T)  # V
-        return (k_app * a) * -(np.exp(-(con2 * x)) - np.exp((con * x)))#eqn from suntivisch paper
-    # plt.plot(x1, func2(x1, 0), color='grey', linestyle = "dotted")  # Use k_app directly
-    # plt.plot(x1, func2(x1, 1), color='grey', linestyle = "dashed")  # Use k_app directly
-    plt.show()
 
 
     
-    """" plots the trace of what the rate would be at 5 times faster or slower"""
+    """" plots the trace of what the rate would be at upper/lower stdev """
     #plt.plot(x1, func(x1, k_app+err[0]), color='grey', linestyle = "dashed", alpha = 0.5)  # Use k_app directly
     #plt.plot(x1, func(x1, k_app-err[0]), color='grey', linestyle = "dashed", alpha = 0.5)  # Use k_app directly
     

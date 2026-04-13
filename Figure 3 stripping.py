@@ -34,20 +34,20 @@ colors = [ "navy", "blue", "dodgerblue", "skyblue", "lightblue"] # color of dots
 # colors = ["#952516", "#db1b0c",   "#ff5245",      "#ff948f"  ]
 markers = ['o','^','s','v', 'o']
 
-conc = 1 # mM conc
+conc = xxx # mM conc
 concentration = conc/1000 # Molar 10 mM = 0.010 M
 #add visual aid for concentration
 
 
-Eoc = -0.037
-electrode_areas = [ 0.155,  0.151, 0.16,  ] #cm^2 0.132, 0.136, 0.137
-Rs = [ 39.46, 39.623, 36.28,] # resistance, 0 IF CORRECTED ON INSTRUMENT  8.986,  8.973, 8.06823
+Eoc = xxx
+electrode_areas = [ xxx, xxx,... ] #cm^2 
+Rs = [ xxx, xxx,... ] # resistance, 0 IF CORRECTED ON INSTRUMENT  8.986,  8.973, 8.06823
 comp = 0.15 # fractional %, iR compensation, if 85% on instrument, do remaining 15% here
 #Eoc = 0.0685 # MSe V vs Erev
 
-Emax = 0.58
+Emax = xxx #stop integrating
 #BLpoint = 0.45 ###baseline point
-Emin = 0.45 #slightly highter than baseline to find the voltage closest to 0.36
+Emin = xxx #start integrating
 bounds = (Emin, Emax)
 
 
@@ -65,30 +65,13 @@ print(type(TCD))
 # File loading with dictionary and scan rates
 library = [
     {  # Dictionary to store DataFrames and scan rates, the scan rates are the keys to the file path  #highest cov for all is 10%
-    25: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM AG\LSV-25-aft_Au(st051)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    50: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM AG\LSV-50_Au(st051)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    # 250: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM AG\LSV-250_Au(st051)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    1000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM AG\LSV-1000_Au(st051)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    3000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM AG\LSV-3000_Au(st051)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    # 10000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM AG\LSV-10000_Au(st051)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    # #... (rest of your paths)
+    scanrate: r"filepath.mpt"
     },
     {
-    25: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM Ag - t2\LSV-25_Au(st052)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    50: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM Ag - t2\LSV-50_Au(st052)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    250: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM Ag - t2\LSV-250_Au(st052)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    1000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM Ag - t2\LSV-1000_Au(st052)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    #3000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM Ag - t2\LSV-3000_Au(st052)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    10000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mM Ag - t2\LSV-10000_Au(st052)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-      # #... (rest of your paths)
+    scanrate: r"filepath.mpt"
     },
     {
-    # 25: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mMAg - t3\LSV-25-aft_Au(st053)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    50: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mMAg - t3\LSV-50_Au(st053)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    250: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mMAg - t3\LSV-250_Au(st053)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    1000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mMAg - t3\LSV-1000_Au(st053)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    3000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mMAg - t3\LSV-3000_Au(st053)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
-    # 10000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Ag UPD\100 mM SE\2025-07-17 1mMAg - t3\LSV-10000_Au(st053)_Pt_Ag[1mM]_100-1_PCA-Ag_20250717_03_LSV_C02.mpt",
+    scanrate: r"filepath.mpt"
     # #... (rest of your paths)
     },
     
@@ -100,8 +83,8 @@ library = [
 plotColors = ["#000000", "#300c18", "#640d31", "#920346", "#b9095a", "#de086e", "#fd2084", "#ff65a0", "#ff8eb6", "#ffaeca", "#ffcbdc", "#ffe5ed", "#ffffff"] #for coverage vs potential plot
 
 head = 0
-BaseLine_const = pd.read_csv(r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\blanks\2025-04-24 100 mM PCA - BLANK\CV-50_Au(st#038)_Pt_MSE_100_PCA-BLANK_20250424_02_CV_C01.mpt", delimiter='\t', header=head)
-BL_inf = { 'R':43.423, 'SA':0.162, 'Cycle':2, 'SR':50}
+BaseLine_const = pd.read_csv(r"filepath.mpt", delimiter='\t', header=head)
+BL_inf = { 'R':xxx, 'SA':xxx, 'Cycle':xxx, 'SR':xxx}
 
 
 

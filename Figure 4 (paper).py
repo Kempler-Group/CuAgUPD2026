@@ -94,7 +94,7 @@ def fit_display(given_freq, concentrations, color):
     log_freq = np.log10(given_freq)
     log_conc =  np.log10(concentrations)
     fit_params, cov = np.polyfit(log_conc, log_freq, 1, cov=True)
-    err = (cov[0][0]**2+cov[0][1]**2+cov[1][0]**2+cov[1][1]**2)**0.5 / 4
+    err = np.sqrt(cov[0][0])#np.sqrt(np.diag(cov))
     print("the error in the fit of", fit_params[0], "is", err)
     # print(sum(error[0]))
     def func (params, x):

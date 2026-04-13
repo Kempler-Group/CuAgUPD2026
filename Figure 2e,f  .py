@@ -53,7 +53,7 @@ mol_Au = TCD / (N * 96485.3321233100184) # C/cm^2, n, C/mol, will need to change
 
 # File loading with dictionary and scan rates
 library =       {  # Dictionary to store DataFrames and scan rates, the scan rates are the keys to the file path
-    scanrate: r"filepath.mptt",
+    scanrate: r"filepath.mpt",
     # ... (rest of your paths)
     }
 

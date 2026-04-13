@@ -30,19 +30,19 @@ plt.rcParams["legend.loc"] =  'upper right'
 
 cl =  "#b9095a" # color of dots
 
-electrode_area = 0.124 #cm^2
-electrode_area = 0.155 #cm^2
-R = 40.8201  # resistance, 0 IF CORRECTED ON INSTRUMEN
+electrode_area = xxx #cm^2
+electrode_area = xxx #cm^2
+R = xxx  # resistance, 0 IF CORRECTED ON INSTRUMEN
 comp = 0.015 # fractional %, iR compensation, if 85% on instrument, do remaining 15% here
 
-conc = 3 # mM conc
+conc = xxx # mM conc
 concentration = conc/1000 # Molar 10 mM = 0.010 M
 #add visual aid for concentration
 
 Emin = 0.15
-BLpoint = 0.4 ###baseline point
-Emax = BLpoint + 0.01 #slightly highter than baseline to find the voltage closest to 0.36
-Coverage = 0.07 # coverage you want to find the coverage at
+BLpoint = xxx ###baseline point
+Emax = BLpoint + 0.01 #slightly highter than baseline to find the voltage closest 
+Coverage = 0.05 # coverage you want to find the coverage at
 
 ### Au site density can be back calculated from "ideal" Cu coverage, change for respective ions
 TCD = 440e-6 #C/cm^2, Theortical Charge Density (site occupancy) Cu on Au(111) = 440e-6, Ag on Au(111) = 222e-6
@@ -53,24 +53,12 @@ mol_Au = TCD / (N * 96485.3321233100184) # C/cm^2, n, C/mol, will need to change
 
 # File loading with dictionary and scan rates
 library =       {  # Dictionary to store DataFrames and scan rates, the scan rates are the keys to the file path
-    # 5: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-5_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    25: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-25_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    50: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-50_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    75: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-75_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    100: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-100_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    250: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-250-avg_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    500: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-500_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    1000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-1000_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    2500: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-2500_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    5000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-5000_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    10000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-10000_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    25000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-25000_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
-    #50000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\HClO4\Cu UPD in PCA\100 mM SE\2025-11-24 3 mM -  rt\CV-50000_Au(st#066)_Pt_Cu[3mM]_100-3_PCA-Cu_20251121_02_CV_C02.mpt",
+    scanrate: r"filepath.mptt",
     # ... (rest of your paths)
     }
 
 
-alpha = 1/2
+
 
 head=0
 frames = {}  # Dictionary to store DataFrames, keyed by scan rate
@@ -91,7 +79,7 @@ plotColors = ["#000000", "#1c0b0f", "#3e1923", "#5e2133", "#7e2642", "#9d2850", 
 # plotColors = ["#000000",   "#b9095a",  "#fd2084", "#ff65a0", "#ff8eb6", "#ffaeca", "#ffcbdc", "#ffe5ed", "#ffffff"] #for coverage vs potential plot
 # plotColors =["#000000",  "#a42356", "#e92a7c", "#fd75a7", "#ff96bb", "#ffb3cd", "#ffcede"]
 
-
+alpha = 1/2
 
 def run_files(frames, plotColors, legend, scan_rates):  # Add scan_rates as a parameter
     '''
@@ -212,20 +200,7 @@ def get_K_app(pca_E, P_ks, cl):  # Pass Coverage and cl as arguments
     plt.text(0.025, 0.19, coverage_str, transform=plt.gca().transAxes, fontsize=24, color='black', verticalalignment='top')
     plt.text(0.05, 0.14, r_app_str, transform=plt.gca().transAxes, fontsize=24, color='black', verticalalignment='top')
     
-    
-
-    def func2(x, al):
-        
-        con = ( al * e) / ( kb * T)  # V
-        con2 = ( (1-al) * e) / ( kb * T)  # V
-        return (k_app * a) * (np.exp(-(con2 * x)) - np.exp((con * x)))#eqn from suntivisch paper
-    # plt.plot(x1, func2(x1, 1), color='grey', linestyle = "dotted")  # Use k_app directly
-    # plt.plot(x1, func2(x1, 0), color='grey', linestyle = "dashed")  # Use k_app directly
-    plt.show()
-    
-    
-    
-    
+   
     
     
     return k_app, err # Return k_app and err

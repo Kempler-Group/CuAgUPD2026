@@ -38,16 +38,16 @@ markers = ['o','^','s','v']
 colors = ["#952516", "#db1b0c",   "#ff5245",  "#ff948f", "#db1b0c",   "#ff5245",  "#ff948f"  ] #red/orange for Cu
 markers = ['o','^','s','v','^','s','v']
 
-conc = 1 # mM conc of ClS
+conc = xxx # mM conc of ClS
 concentration = conc/1000 # Molar 10 mM = 0.010 M
 #add visual aid for concentration
 
-electrode_areas = [   0.136, 0.17,  0.17,] #cm^2   0.132, 0.132,
-Rs = [  36.4, 34.9574, 33.781, ] # resistance, 0 IF CORRECTED ON INSTRUMENT   67.4647, 55.3532, 
+electrode_areas = [  xxx, xxx, xxx,] #cm^2   0.132, 0.132,
+Rs = [ xxx, xxx, xxx, ] # resistance, 0 IF CORRECTED ON INSTRUMENT   67.4647, 55.3532, 
 comp = 0.15 # fractional %, iR compensation, if 85% on instrument, do remaining 15% here
 
-Emin = 0.15
-BLpoint = 0.39 ###baseline point
+Emin = xxx
+BLpoint = xxx ###baseline point
 Emax = BLpoint + 0.01 #slightly highter than baseline to find the voltage closest to 0.36
 Coverage = 0.05 # coverage you want to find the coverage at
 
@@ -63,49 +63,17 @@ mol_Au = TCD / (N * 96485) # C/cm^2, n, C/mol, will need to change 440e-6 (Cu si
 library = [
 
 
-    {  # Dictionary to store DataFrames and scan rates, the scan rates are the keys to the file path ### 12 - 2 -25
-    #10: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-10_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    #25: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-25_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt", 
-    50: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-50_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    75: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-100_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    100: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-100_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    #250: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-250_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    500: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-500_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    1000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-1000_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    2500: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-2500_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    5000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-5000_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    10000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-10000_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    #25000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-25000_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
-    #50000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-08-21 1 mM Cu - stripping\CV-50000_Au(st060)_Pt_Cu[1mM]_100-1_HSA-Cu_20250821_02_CV_C01.mpt",
+    {  # Dictionary to store DataFrames and scan rates, the scan rates are the keys to the file path ### 
+    scanrate: r"fikepath.mpt",
     # ... (rest of your paths)
     },
-    {  # Dictionary to store DataFrames and scan rates, the scan rates are the keys to the file path
-    #25: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-25_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt", 
-    #50: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-50_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    100: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-100_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    250: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-250_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    500: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-500_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    1000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-1000_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    2500: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-2500_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    5000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-5000_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    10000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-10000_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    #15000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-15000_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    #25000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-08 1mM Cu -  stripping\CV-25000_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251008_02_CV_C02.mpt",
-    #... (rest of your paths)
-
+    {  # Dictionary to store DataFrames and scan rates, the scan rates are the keys to the file path ### 
+    scanrate: r"fikepath.mpt",
+    # ... (rest of your paths)
     },
-    {  # Dictionary to store DataFrames and scan rates
-    25: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-25_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt", 
-    50: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-50_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt",
-    75: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-75_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt",
-    100: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-100_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt",
-    250: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-250_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt",
-    500: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-500_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt",
-    1000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-1000_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt",
-    2500: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-2500_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt",
-    5000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-5000_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt",
-    10000: r"C:\Users\stern\OneDrive\Documents\School papers\Kempler Lab\data\Au(111)\H2SO4\100 mM\2025-10-15 1 mM Cu - strip\CV-10000_Au(st#066)_Pt_Cu[1mM]_100-1_PCA-Cu_20251015_02_CV_C02.mpt",
-    #... (rest of your paths)
+    {  # Dictionary to store DataFrames and scan rates, the scan rates are the keys to the file path 
+    scanrate: r"fikepath.mpt",
+    # ... (rest of your paths)
     },
 
     ]
@@ -235,7 +203,7 @@ def plt_avg_Ko(data_frame, electrode_areas, Rs, colors):
     # plt.text(0.025, 0.19, coverage_str, transform=plt.gca().transAxes, fontsize=24, color='black', verticalalignment='top')
     # plt.text(0.05, 0.14, r_app_str, transform=plt.gca().transAxes, fontsize=24, color='black', verticalalignment='top')
     
-    """" plots the trace of what the rate would be at 5 times faster or slower"""
+    """" plots the trace of what the rate would be for sdev upper/lower bounds"""
     plt.plot(x1, func(x1, k_avg + k_stdv), color='grey', linestyle = "dashed", alpha = 0.3)  # Use k_app directly
     plt.plot(x1, func(x1, k_avg - k_stdv), color='grey', linestyle = "dashed", alpha = 0.3)  # Use k_app directly
     
